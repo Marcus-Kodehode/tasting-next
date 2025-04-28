@@ -49,11 +49,7 @@ export default function Carousel() {
         slidesPerView="auto" // <-- viktig! 'auto' gjør at slides ruller jevnt
         centeredSlides={false}
         freeMode={true} // Beholder fri scroll
-        autoplay={{
-            delay: 20000, // <-- 20000ms = 20 sekunder pause før scroll fortsetter
-            disableOnInteraction: false, // Fortsetter å spille selv om brukeren klikker
-            pauseOnMouseEnter: true, // PAUSE når musa er over swiper (veldig pro!)
-        }}
+
         navigation={true} // Piler aktivert
         pagination={{ clickable: true }}
         speed={3000} // Smooth scroll-hastighet
