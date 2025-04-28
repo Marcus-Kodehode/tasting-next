@@ -1,7 +1,7 @@
 "use client"; // Viktig for Next.js
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation } from 'swiper/modules';
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -43,18 +43,29 @@ const cards = [
 export default function Carousel() {
   return (
     <div className="w-full max-w-6xl mx-auto py-8">
-      <Swiper
-        modules={[Pagination, Navigation]}
+        <Swiper
+        modules={[Pagination, Navigation, Autoplay]}
         spaceBetween={30}
-        slidesPerView={1}
-        navigation
-        pagination={{ clickable: true }}
-        breakpoints={{
-          640: { slidesPerView: 1 },
-          768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
+        slidesPerView="auto" // <-- viktig! 'auto' gjør at slides ruller jevnt
+        centeredSlides={false}
+        freeMode={true} // Beholder fri scroll
+        autoplay={{
+            delay: 20000, // <-- 20000ms = 20 sekunder pause før scroll fortsetter
+            disableOnInteraction: false, // Fortsetter å spille selv om brukeren klikker
+            pauseOnMouseEnter: true, // PAUSE når musa er over swiper (veldig pro!)
         }}
-      >
+        navigation={true} // Piler aktivert
+        pagination={{ clickable: true }}
+        speed={3000} // Smooth scroll-hastighet
+        loop={false} // Deaktiver loop for ekte free scroll // <-- Lavere hastighet = mykere scroll
+        breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+        }}
+        >
+
+
         {cards.map((card, index) => (
           <SwiperSlide key={index}>
             <InfoCard
