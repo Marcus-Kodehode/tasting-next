@@ -1,4 +1,4 @@
-import { CARDS_DATA } from './data/cardsdata';
+// import { CARDS_DATA } from './data/cardsdata';
 // InfoCard.jsx
 import Image from "next/image";
 import Link from "next/link";

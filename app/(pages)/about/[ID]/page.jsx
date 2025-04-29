@@ -1,4 +1,5 @@
-import { CARDS_DATA } from '../components/data/cardsdata';
+
+import { CARDS_DATA } from "@/app/components/data/cardsdata";
 
 export default function CardDetail({ params }) {
   const card = CARDS_DATA.find(
