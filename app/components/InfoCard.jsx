@@ -24,4 +24,5 @@ export default function InfoCard({ imageSrc, title, description }) {
   );
 }
 
+
   
